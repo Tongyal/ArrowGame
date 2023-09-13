@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arrow Game</title>
+<link rel="stylesheet" href="arrowGame.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+  <!-- SVG game content -->
+  <svg id="game" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" overflow="visible">
+    <!-- Define a linear gradient for the arc -->
+    <linearGradient id="ArcGradient">
+      <stop offset="0" stop-color="#fff" stop-opacity=".2"/>
+      <stop offset="50%" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    
+    <!-- Draw an arc using the gradient for shading -->
+    <path id="arc" fill="none" stroke="url(#ArcGradient)" stroke-width="4" d="M100,250c250-400,550-400,800,0" pointer-events="none"/>
+    
+    <!-- Define arrow graphics -->
+    <defs>
+      <g id="arrow">
+        <line x2="60" fill="none" stroke="#888" stroke-width="2" />
+        <polygon fill="#888" points="64 0 58 2 56 0 58 -2" />
+        <polygon fill="#88ce02" points="2 -3 -4 -3 -1 0 -4 3 2 3 5 0" />
+      </g>
+    </defs>
+    
+    <!-- Draw the target -->
+    <g id="target">
+      <path fill="#FFF" d="M924.2,274.2c-21.5,21.5-45.9,19.9-52,3.2c-4.4-12.1,2.4-29.2,14.2-41c11.8-11.8,29-18.6,41-14.2 C944.1,228.3,945.7,252.8,924.2,274.2z" />
+      <!-- ... Additional path elements for the target ... -->
+    </g>
+    
+    <!-- Draw the bow -->
+    <g id="bow" fill="none" stroke-linecap="round" vector-effect="non-scaling-stroke" pointer-events="none">
+      <polyline fill="none" stroke="#ddd" stroke-linecap="round" points="88,200 88,250 88,300"/>
+      <path fill="none" stroke="#88ce02" stroke-width="3" stroke-linecap="round" d="M88,300 c0-10.1,12-25.1,12-50s-12-39.9-12-50"/>
+    </g>
+    
+    <!-- Draw arrow angle -->
+    <g class="arrow-angle">
+      <use x="100" y="250" xlink:href="#arrow"/>
+    </g>
+    
+    <!-- Define a clip path for arrows -->
+    <clipPath id="mask">
+      <!-- ... Define the clip path polygon points ... -->
+    </clipPath>
+    
+    <!-- Draw arrows within the clip path -->
+    <g class="arrows" clip-path="url(#mask)" pointer-events="none">
+      <!-- ... Arrows will be added here ... -->
+    </g>
+    
+    <!-- Draw miss indicators -->
+    <g class="miss" fill="#aaa" opacity="0" transform="translate(0, 100)">
+      <!-- ... Paths for miss indicators ... -->
+    </g>
+    
+    <!-- Draw bullseye -->
+    <g class="bullseye" fill="#F4531C" opacity="0">
+      <!-- ... Paths for bullseye ... -->
+    </g>
+    
+    <!-- Draw hit indicators -->
+    <g class="hit" fill="#ffcc00" opacity="0" transform="translate(180, -80) rotate(12)">
+      <!-- ... Paths for hit indicators ... -->
+    </g>
+  </svg>
+
+  <!-- Display a message for the user -->
+  <p>Draw back an arrow and launch it!</p>
+
+   <!-- Include TweenMax and MorphSVGPlugin libraries -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/MorphSVGPlugin.min.js"></script>
+
+  
+
+  <!-- Include your JavaScript file -->
+  <!--<script src="arrowGame.js"></script> -->
+  <script src="gss.js"></script>
+</body>
+</html>
+ 
